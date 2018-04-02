@@ -42,7 +42,11 @@ class MainActivity : AppCompatActivity() {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
     if (requestCode == 10) {
-      val message = if (grantResults[0] == PackageManager.PERMISSION_GRANTED) R.string.locationGranted else R.string.locationDenied
+      val message = if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        R.string.locationGranted
+      } else {
+        R.string.locationDenied
+      }
       Snackbar.make(buttonLogLocation.rootView, message, Snackbar.LENGTH_SHORT).show()
     }
   }
